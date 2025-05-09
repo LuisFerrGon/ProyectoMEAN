@@ -3,5 +3,9 @@ const crypto = require('crypto').randomBytes(256).toString('hex');
 module.exports={
     uri: 'mongodb://localhost:27017/pruebaDB',
     secret: crypto,
-    db: 'pruebaDB'
+    db: 'pruebaDB',
+    options:{
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
 }

@@ -11,10 +11,11 @@ import { MirarComponent } from './mirar/mirar.component';
 import { EditarComponent } from './editar/editar.component';
 import { BorrarComponent } from './borrar/borrar.component';
 
-import { PruebaService } from "./services/prueba/prueba.service";
+import { DepartamentoService } from "./services/departamento/departamento.service";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
+  declarations:[
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -24,14 +25,17 @@ import { PruebaService } from "./services/prueba/prueba.service";
     EditarComponent,
     BorrarComponent
   ],
-  imports: [
+  imports:[
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [
+  providers:[
     provideClientHydration(withEventReplay()),
-    PruebaService
+    DepartamentoService
   ],
-  bootstrap: [AppComponent]
+  bootstrap:[
+    AppComponent
+  ]
 })
 export class AppModule { }
