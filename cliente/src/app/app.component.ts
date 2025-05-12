@@ -21,11 +21,4 @@ export class AppComponent implements OnInit{
       this.departamentos=data
     });
   }
-
-  // addItem(codigo: String, descrip: String, volumen: Number){
-  //   const nDepartamento={codigo, descrip, volumen};
-  //   this.departamentoService.addItem(nDepartamento).subscribe(departamento=>{
-  //     this.departamentos.push(departamento);
-  //   });
-  // }
 }

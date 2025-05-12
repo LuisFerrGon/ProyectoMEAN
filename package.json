@@ -12,6 +12,7 @@
     "@angular/cli": "^19.2.7",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "mongoose": "^8.13.2"
   }
 }

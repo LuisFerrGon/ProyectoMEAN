@@ -6,10 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TablaComponent } from './tabla/tabla.component';
-import { NuevoComponent } from './nuevo/nuevo.component';
-import { MirarComponent } from './mirar/mirar.component';
 import { EditarComponent } from './editar/editar.component';
-import { BorrarComponent } from './borrar/borrar.component';
 
 import { DepartamentoService } from "./services/departamento/departamento.service";
 import { HttpClientModule } from '@angular/common/http';
@@ -20,10 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     TablaComponent,
-    NuevoComponent,
-    MirarComponent,
-    EditarComponent,
-    BorrarComponent
+    EditarComponent
   ],
   imports:[
     BrowserModule,

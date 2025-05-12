@@ -10,14 +10,13 @@ router.get('/departamentos', async (req, res)=>{
         res.status(500).json({ error: err.message });
     }
 });
-router.post('/registrar', async (req, res)=>{
-    try{
-        const departamentoNuevo=new Departamento(req.body);
-        await departamentoNuevo.save();
-        res.status(201).send('Departamento registrado');
-    }catch(err){
-        res.status(500).send('Error al registrar departamento');
-    }
+router.post('/getByID', (req, res) => {
+    const { id } = req.body;
+    if (!id) return res.status(400).send({ message: 'ID requerido' });
+
+    req.session.editId = id;
+    res.send({ message: 'ID guardado en sesión' });
 });
+
 
 module.exports=router;

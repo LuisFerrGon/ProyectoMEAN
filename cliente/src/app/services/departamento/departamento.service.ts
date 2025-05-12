@@ -6,11 +6,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DepartamentoService {
-  private apiURL="http://localhost:8080/departamentos";
+  private urlMostrar="http://localhost:8080/departamentos";
+  private urlGetByID="http://localhost:8080/getByID";
+  private urlEditar="http://localhost:8080/editar";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { };
 
   getDepartamentos(): Observable<any>{
-    return this.http.get(this.apiURL);
+    return this.http.get(this.urlMostrar);
+  };
+
+  findDepartamentoByID(): Observable<any>{
+    return this.http.post(this.urlGetByID, { withCredentials:true});
+  };
+
+  cambiarDepartamento(data: any){
+    return this.http.post(this.urlEditar, data);
   }
 }
