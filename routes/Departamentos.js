@@ -17,6 +17,23 @@ router.post('/getByID', (req, res) => {
     req.session.editId = id;
     res.send({ message: 'ID guardado en sesión' });
 });
-
+router.put('/editar/:codigo', async(req, res)=>{
+    const codigo = req.params.id;
+    const datos = req.body;
+    console.log("\n"+codigo+"\n"+datos);
+    try {
+        const actualizado = await Departamento.findByIdAndUpdate(
+            { codigo: codigo },
+            datos,
+            { new: true }
+        );
+        if (!actualizado) {
+            return res.status(404).send('No se encontró el departamento.');
+        }
+        res.json(actualizado);
+    } catch (error) {
+        res.status(500).send({ mensaje: 'Error actualizando', error });
+    }
+});
 
 module.exports=router;

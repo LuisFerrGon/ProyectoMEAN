@@ -17,10 +17,17 @@ export class DepartamentoService {
   };
 
   findDepartamentoByID(): Observable<any>{
-    return this.http.post(this.urlGetByID, { withCredentials:true});
+    return this.http.get(this.urlGetByID, { withCredentials:true});
   };
 
   cambiarDepartamento(data: any){
     return this.http.post(this.urlEditar, data);
+  }
+
+  editarDepartamento(codigo: string, datos: any): Observable<any>{
+    console.log("departamento.service.ts/editarDepartamento()");
+    console.log(codigo);
+    console.log(datos);
+    return this.http.put(this.urlEditar+'/'+codigo, datos);
   }
 }

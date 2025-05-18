@@ -1,21 +1,21 @@
 const cors=require('cors');
 const express = require('express');
 const sesion = require('express-session');
-const departamentos = require('./routes/Departamentos');
+const rutaDepartamentos = require('./routes/Departamentos');
 const mongoose = require('mongoose');
 const config = require('./config/config');
 const Departamento = require('./models/Departamento');
-
 const app = express();
-
 const puerto = 8080;
+
 
 app.use(cors({
     origin: 'http://localhost:4200',
     credentials: true
 }));
+app.use('/editar', rutaDepartamentos);
 app.use(express.json());
-app.use('/departamento', departamentos);
+// app.use('/departamento', rutaDepartamentos);
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -66,12 +66,29 @@ app.get('/getByID', async(req, res)=>{
         res.status(500).send({message: 'Error al obtener datos'});
     }
 });
-
 app.post('/getByID', (req, res)=>{
     const { idDepartamento } = req.body;
     if (!idDepartamento) return res.status(400).send({message: 'ID no proporcionado post'});
     req.session.idDepartamento=idDepartamento;
     res.send({message: 'ID guardado'});
+});
+app.get('/editar', async(req, res)=>{
+    const codigo = req.params.id;
+    const datos = req.body;
+    console.log("\n"+codigo+"\n"+datos);
+    try {
+        const actualizado = await Departamento.findByIdAndUpdate(
+            { codigo: codigo },
+            datos,
+            { new: true }
+        );
+        if (!actualizado) {
+            return res.status(404).send('No se encontró el departamento.');
+        }
+        res.json(actualizado);
+    } catch (error) {
+        res.status(500).send({ mensaje: 'Error actualizando', error });
+    }
 });
 
 app.listen(puerto, () =>{
