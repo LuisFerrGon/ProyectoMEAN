@@ -1,57 +1,67 @@
 <main>
-    <form *ngIf="formEditar" [formGroup]="formEditar" (ngSubmit)="cambiar()">
-        <table>
-            <thead>
-                <tr>
-                    <th scope="row" colspan="2">
-                        Editar departamento
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <label for="codigo">
-                            Código:
-                        </label>
-                    </td>
-                    <td>
-                        <input formControlName="codDepartamento" type="text" id="codigo">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="nombre">
-                            Nombre:
-                        </label>
-                    </td>
-                    <td>
-                        <input formControlName="descDepartamento" type="text" id="nombre" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="volumen">
-                            Volumen:
-                        </label>
-                    </td>
-                    <td>
-                        <input formControlName="volDepartamento" type="number" step="0.01" id="volumen" required>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>
-                        <button type="submit">Cambiar</button>
-                    </td>
-                    <td>
-                        <button type="button">
-                            <a href="..">Volver</a>
-                        </button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-    </form>
+	<form *ngIf="formEditar" [formGroup]="formEditar" (ngSubmit)="cambiar()">
+		<table>
+			<thead>
+				<tr>
+					<th scope="row" colspan="2">
+						Editar departamento
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr hidden>
+					<td>
+						<label for="id">
+							ID:
+						</label>
+					</td>
+					<td>
+						<input formControlName="_id" type="text" id="id" disabled="disabled">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="codigo">
+							Código:
+						</label>
+					</td>
+					<td>
+						<input formControlName="codDepartamento" type="text" id="codigo">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="nombre">
+							Nombre:
+						</label>
+					</td>
+					<td>
+						<input formControlName="descDepartamento" type="text" id="nombre" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="volumen">
+							Volumen:
+						</label>
+					</td>
+					<td>
+						<input formControlName="volDepartamento" type="number" step="0.01" id="volumen" required>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>
+						<button type="submit">Cambiar</button>
+					</td>
+					<td>
+						<button type="button">
+							<a href="..">Volver</a>
+						</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</form>
 </main>
