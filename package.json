@@ -1,5 +1,5 @@
 {
-	"name": "mean",
+	"name": "ejemplo",
 	"version": "1.0.0",
 	"main": "server.js",
 	"scripts": {
@@ -9,10 +9,11 @@
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
-		"@angular/cli": "^19.2.7",
+		"body-parser": "^2.2.0",
 		"cors": "^2.8.5",
 		"express": "^5.1.0",
 		"express-session": "^1.18.1",
-		"mongoose": "^8.13.2"
+		"mongodb": "^6.17.0",
+		"mongoose": "^8.15.1"
 	}
 }
