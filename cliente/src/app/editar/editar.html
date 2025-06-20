@@ -1,0 +1,11 @@
+<!-- cliente/src/app/editar/editar.html -->
+<main>
+    <form [formGroup]="formEditar" (submit)="editar()">
+        <input formControlName="_id" type="text"> <br>
+        <input formControlName="name" type="text"> <br>
+        <input formControlName="email" type="text"> <br>
+        <input formControlName="password" type="text"> <br>
+    <button type="submit">Editar</button>
+    <a href="..">Volver</a>
+    </form>
+</main>

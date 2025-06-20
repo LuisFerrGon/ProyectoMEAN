@@ -1,0 +1,10 @@
+<!-- cliente/src/app/crear/crear.html -->
+<main>
+    <form [formGroup]="formCrear" (submit)="crear()">
+        <input formControlName="name" type="text"> <br>
+        <input formControlName="email" type="text"> <br>
+        <input formControlName="password" type="text"> <br>
+    <button type="submit">Crear</button>
+    <a href="..">Volver</a>
+    </form>
+</main>

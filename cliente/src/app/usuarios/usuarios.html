@@ -1,0 +1,37 @@
+<!-- cliente/src/app/usuarios/usuarios.html -->
+<main>
+	<a href="crear">Crear</a>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">Nombre</th>
+				<th scope="col">Email</th>
+				<th scope="col">Contraseña</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let usuario of usuarios">
+				<td>
+					{{ usuario.name }}
+				</td>
+				<td>
+					{{ usuario.email }}
+				</td>
+				<td>
+					{{ usuario.password }}
+				</td>
+				<td>
+					<a href="mostrar/{{ usuario._id }}">Mostrar</a>
+				</td>
+				<td>
+					<a href="editar/{{ usuario._id }}">Editar</a>
+				</td>
+				<!-- Contenido nuevo -->
+				<td>
+					<a href="eliminar/{{ usuario._id }}">Eliminar</a>
+				</td>
+				<!-- Fin contenido nuevo -->
+			</tr>
+		</tbody>
+	</table>
+</main>

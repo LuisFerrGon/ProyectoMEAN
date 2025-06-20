@@ -1,0 +1,10 @@
+<!-- cliente/src/app/mostrar/mostrar.html -->
+<main>
+	<form [formGroup]="formMostrar" (submit)="volver()">
+		<input formControlName="_id" type="text"> <br>
+		<input formControlName="name" type="text"> <br>
+		<input formControlName="email" type="text"> <br>
+		<input formControlName="password" type="text"> <br>
+		<button type="submit">Volver</button>
+	</form>
+</main>

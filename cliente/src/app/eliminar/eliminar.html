@@ -1,0 +1,11 @@
+<!-- cliente/src/app/eliminar/eliminar.html -->
+<main>
+	<form [formGroup]="formEliminar" (submit)="eliminar()">
+		<input formControlName="_id" type="text"> <br>
+		<input formControlName="name" type="text"> <br>
+		<input formControlName="email" type="text"> <br>
+		<input formControlName="password" type="text"> <br>
+        <button type="submit">Eliminar</button>
+        <a href="..">Volver</a>
+	</form>
+</main>
