@@ -19,9 +19,7 @@ router.get('/getByID/:id', async(req, res) => {
 	const usuario = await modeloUser.findById(id);
 	res.json(usuario);
 });
-// Contenido nuevo
 router.post('/editar', async(req, res) => {
-	console.log("post");
 	const id = req.body._id;
 	const datos = req.body;
 	console.log(datos);
@@ -30,6 +28,11 @@ router.post('/editar', async(req, res) => {
 		datos,
 		{ new: true }
 	);
+});
+// Contenido nuevo
+router.post('/eliminar/:id', async(req, res) => {
+	id = req.params.id;
+	await modeloUser.findByIdAndDelete(id);
 });
 // Fin contenido nuevo
 module.exports = router;
